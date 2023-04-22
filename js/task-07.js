@@ -1,11 +1,12 @@
 const refs = {
-  fontSizeControl: document.querySelector("#font-size-control"),
-  text: document.querySelector("#text"),
+  inputRange: document.querySelector('#font-size-control'),
+  text: document.querySelector('#text'),
 };
 
-refs.fontSizeControl.addEventListener("input", onFontSizeControlInput);
+refs.text.style.fontSize = `${refs.inputRange.value}px`;
 
-function onFontSizeControlInput(event) {
-  console.log(event.currentTarget.value);
-  refs.text.style.fontSize = `${event.currentTarget.value}px`;
+refs.inputRange.addEventListener('input', onInputChange);
+
+function onInputChange() {
+  refs.text.style.fontSize = `${refs.inputRange.value}px`;
 }
